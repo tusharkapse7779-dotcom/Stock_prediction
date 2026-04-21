@@ -1,0 +1,306 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, #0c0c0c 0%, #1a1a2e 50%, #16213e 100%);
+    min-height: 100vh;
+    color: #ffffff;
+    overflow-x: hidden;
+}
+
+.glass-container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 20px;
+    min-height: 100vh;
+}
+
+/* Glass Morphism Effect */
+.glass-panel, .glass-header {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(20px);
+    border-radius: 20px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    box-shadow: 0 25px 45px rgba(0, 0, 0, 0.3);
+    padding: 25px;
+    margin-bottom: 20px;
+    transition: all 0.3s ease;
+}
+
+.glass-panel:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 35px 60px rgba(0, 0, 0, 0.4);
+}
+
+/* Header */
+.glass-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 30px;
+    position: sticky;
+    top: 20px;
+    z-index: 100;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.logo i {
+    font-size: 2.5rem;
+    background: linear-gradient(45deg, #00d4ff, #ff00ff);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.logo h1 {
+    background: linear-gradient(45deg, #00d4ff, #ff00ff);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    font-size: 2rem;
+    font-weight: 700;
+}
+
+.market-status {
+    display: flex;
+    gap: 20px;
+    font-size: 1.1rem;
+    font-weight: 500;
+}
+
+/* Search Panel */
+.search-box {
+    display: flex;
+    gap: 15px;
+    margin-bottom: 20px;
+}
+
+#stockSearch {
+    flex: 1;
+    padding: 15px 20px;
+    border: none;
+    border-radius: 50px;
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(10px);
+    color: white;
+    font-size: 1.1rem;
+    outline: none;
+}
+
+#stockSearch::placeholder {
+    color: rgba(255, 255, 255, 0.7);
+}
+
+#searchBtn {
+    padding: 15px 25px;
+    border: none;
+    border-radius: 50px;
+    background: linear-gradient(45deg, #00d4ff, #0099ff);
+    color: white;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.quick-stocks {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.quick-btn {
+    padding: 10px 20px;
+    border: 2px solid rgba(255, 255, 255, 0.2);
+    background: rgba(255, 255, 255, 0.05);
+    color: white;
+    border-radius: 25px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-weight: 500;
+}
+
+.quick-btn:hover, .quick-btn.active {
+    background: linear-gradient(45deg, #00d4ff, #0099ff);
+    border-color: #00d4ff;
+    transform: translateY(-2px);
+}
+
+/* Stock Info */
+.stock-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 25px;
+}
+
+#stockName {
+    font-size: 2.5rem;
+    font-weight: 700;
+    background: linear-gradient(45deg, #00d4ff, #ff00ff);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.price-change {
+    text-align: right;
+}
+
+#currentPrice {
+    font-size: 2.2rem;
+    font-weight: 700;
+    display: block;
+}
+
+#changePercent {
+    font-size: 1.2rem;
+    font-weight: 500;
+}
+
+.positive { color: #00ff88; }
+.negative { color: #ff4444; }
+
+.prediction-card {
+    display: flex;
+    gap: 30px;
+    justify-content: space-between;
+}
+
+.prediction-item {
+    flex: 1;
+    text-align: center;
+}
+
+.pred-result {
+    font-size: 2rem;
+    font-weight: 700;
+    margin-top: 10px;
+    min-height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.up-pred { color: #00ff88; }
+.down-pred { color: #ff4444; }
+
+.confidence {
+    background: linear-gradient(45deg, #00d4ff, #0099ff);
+    padding: 8px 20px;
+    border-radius: 25px;
+    font-weight: 600;
+}
+
+/* Chart */
+.chart-panel {
+    height: 500px;
+}
+
+.chart-tabs {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.tab-btn {
+    padding: 10px 25px;
+    border: 2px solid rgba(255, 255, 255, 0.2);
+    background: rgba(255, 255, 255, 0.05);
+    color: white;
+    border-radius: 25px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.tab-btn.active {
+    background: linear-gradient(45deg, #00d4ff, #0099ff);
+    border-color: #00d4ff;
+}
+
+#stockChart {
+    max-height: 400px;
+}
+
+/* Action Buttons */
+.control-buttons {
+    display: flex;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+
+.action-btn {
+    flex: 1;
+    min-width: 120px;
+    padding: 15px 25px;
+    border: none;
+    border-radius: 15px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    justify-content: center;
+}
+
+.primary {
+    background: linear-gradient(45deg, #00d4ff, #0099ff);
+    box-shadow: 0 10px 30px rgba(0, 212, 255, 0.4);
+}
+
+.secondary {
+    background: rgba(255, 255, 255, 0.1);
+    border: 2px solid rgba(255, 255, 255, 0.2);
+}
+
+.action-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+}
+
+/* Alerts */
+.alerts-panel {
+    max-height: 200px;
+    overflow-y: auto;
+}
+
+.alert-item {
+    padding: 15px;
+    margin-bottom: 10px;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 15px;
+    border-left: 4px solid #00d4ff;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .glass-container {
+        padding: 10px;
+    }
+    
+    .prediction-card {
+        flex-direction: column;
+        gap: 20px;
+    }
+    
+    .control-buttons {
+        flex-direction: column;
+    }
+    
+    .stock-header {
+        flex-direction: column;
+        gap: 15px;
+        text-align: center;
+    }
+}
