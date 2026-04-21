@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>StockTrend AI - Indian Market Analyzer</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <div class="glass-container">
+        <!-- Header -->
+        <header class="glass-header">
+            <div class="logo">
+                <i class="fas fa-chart-line"></i>
+                <h1>StockTrend AI</h1>
+            </div>
+            <div class="market-status">
+                <span id="marketStatus">🟢 Market Open</span>
+                <span id="currentTime"></span>
+            </div>
+        </header>
+
+        <!-- Main Content -->
+        <div class="main-content">
+            <!-- Search & Controls -->
+            <div class="glass-panel search-panel">
+                <div class="search-box">
+                    <input type="text" id="stockSearch" placeholder="Search NSE stocks (RELIANCE, TCS, INFY...)">
+                    <button id="searchBtn"><i class="fas fa-search"></i></button>
+                </div>
+                <div class="quick-stocks">
+                    <button class="quick-btn active" data-symbol="NIFTY 50">NIFTY</button>
+                    <button class="quick-btn" data-symbol="RELIANCE">RELIANCE</button>
+                    <button class="quick-btn" data-symbol="TCS">TCS</button>
+                    <button class="quick-btn" data-symbol="INFY">INFY</button>
+                    <button class="quick-btn" data-symbol="HDFCBANK">HDFC</button>
+                </div>
+            </div>
+
+            <!-- Stock Info & Prediction -->
+            <div class="glass-panel info-panel">
+                <div class="stock-header">
+                    <h2 id="stockName">-</h2>
+                    <div class="price-change" id="priceChange">
+                        <span id="currentPrice">-</span>
+                        <span id="changePercent">-</span>
+                    </div>
+                </div>
+                <div class="prediction-card">
+                    <div class="prediction-item">
+                        <span>5 Min Prediction</span>
+                        <div class="pred-result" id="fiveMinPred">
+                            <i class="fas fa-spinner fa-spin"></i>
+                        </div>
+                    </div>
+                    <div class="prediction-item">
+                        <span>Confidence</span>
+                        <span id="confidence" class="confidence">0%</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Charts -->
+            <div class="glass-panel chart-panel">
+                <div class="chart-tabs">
+                    <button class="tab-btn active" data-chart="live">Live Chart</button>
+                    <button class="tab-btn" data-chart="prediction">Prediction</button>
+                </div>
+                <canvas id="stockChart"></canvas>
+            </div>
+
+            <!-- Advanced Controls -->
+            <div class="glass-panel controls-panel">
+                <h3>Advanced Analysis</h3>
+                <div class="control-buttons">
+                    <button id="analyzeBtn" class="action-btn primary">
+                        <i class="fas fa-bolt"></i> AI Analysis
+                    </button>
+                    <button id="alertBtn" class="action-btn secondary">
+                        <i class="fas fa-bell"></i> Set Alert
+                    </button>
+                    <button id="compareBtn" class="action-btn secondary">
+                        <i class="fas fa-balance-scale"></i> Compare
+                    </button>
+                    <button id="exportBtn" class="action-btn secondary">
+                        <i class="fas fa-download"></i> Export
+                    </button>
+                </div>
+            </div>
+
+            <!-- Alerts & News -->
+            <div class="glass-panel alerts-panel">
+                <h3>Alerts & News</h3>
+                <div id="alertsList"></div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
